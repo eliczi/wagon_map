@@ -1,5 +1,7 @@
 // Initialize the map centered on Poland
-const map = L.map('map').setView([52.0689, 19.4803], 6);
+const map = L.map('map', {
+    zoomControl: true  // This enables the default zoom control
+}).setView([52.0689, 19.4803], 6);
 
 // Add OpenStreetMap tiles
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -244,9 +246,6 @@ async function processData() {
         console.error('Error processing data:', error);
     }
 }
-
-// Add zoom controls
-map.addControl(new L.Control.Zoom());
 
 // Process the data when the page loads
 processData(); 
